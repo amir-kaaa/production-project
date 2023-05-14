@@ -7,8 +7,9 @@ import { buildDevServer } from "./buildDevServer"
 
 export function buildWebpackConfig(options: BuildOptions): webpack.Configuration {
     const { paths, mode, isDev } = options
+
     return {
-        mode: mode,
+        mode,
         entry: paths.entry,
         output: {
             filename: '[name].[contenthash].js',
@@ -16,10 +17,10 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
             clean: true
         },
         plugins: buildPlugins(options),
-        resolve: buildResolvers(options),
         module: {
             rules: buildLoaders(options),
         },
+        resolve: buildResolvers(options),
         devtool: isDev ? 'inline-source-map' : undefined,
         devServer: isDev ? buildDevServer(options) : undefined
     }
