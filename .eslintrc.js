@@ -43,7 +43,7 @@ module.exports = {
         'no-underscore-dangle': 'off',
         '@typescript-eslint/no-shadow': 'warn',
         'i18next/no-literal-string': ['error', { markupOnly: true }],
-        'max-len': ['error', { ignoreComments: true }],
+        'max-len': 'off',
     },
     globals: {
         __IS_DEV__: true,
