@@ -14,11 +14,12 @@
     "allowJs": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": false
   },
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
-    }
+    },
   }
 }
