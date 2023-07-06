@@ -33,12 +33,10 @@ const config: StorybookConfig = {
 
   config.resolve.extensions.push('.ts', '.tsx');
 
-  // eslint-disable-next-line no-param-reassign
   config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
       if (/svg/.test(rule.test as string)) {
           return { ...rule, exclude: /\.svg$/i };
       }
-
       return rule;
   });
 
@@ -49,14 +47,6 @@ const config: StorybookConfig = {
   
   config.module.rules.push(buildCssLoader(true));
 
-    // if (config.resolve) {
-    //   config.resolve.plugins = [
-    //     ...(config.resolve.plugins || []),
-    //     new TsconfigPathsPlugin({
-    //       extensions: config.resolve.extensions,
-    //     }),
-    //   ];
-    // }
     return config;
   },
 };
