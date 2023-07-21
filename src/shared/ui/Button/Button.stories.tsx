@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Button, ThemeButton } from './Button';
+import { Button, ButtonSize, ButtonTheme } from './Button';
 import 'app/styles/index.scss';
 
 const meta = {
@@ -8,7 +8,7 @@ const meta = {
     tags: ['autodocs'],
     argTypes: {
         backgroundColor: { control: 'color' },
-        size: { control: 'select', options: ['small', 'medium', 'large'] },
+        // size: { control: 'select', options: ['small', 'medium', 'large'] },
     },
 } satisfies Meta<typeof Button>;
 
@@ -22,7 +22,7 @@ export const Primary = {
     },
     decorators: [
         (Story) => (
-            <div style={{ padding: '30px' }}>
+            <div>
                 {/* 👇 Decorators in Storybook also accept a function. Replace <Story/> with Story() to enable it  */}
                 <Story />
             </div>
@@ -32,12 +32,12 @@ export const Primary = {
 
 export const Clear = {
     args: {
-        children: 'this is clear button',
-        theme: ThemeButton.CLEAR,
+        children: 'Text',
+        theme: ButtonTheme.CLEAR,
     },
     decorators: [
         (Story) => (
-            <div style={{ padding: '10px' }}>
+            <div>
                 {/* 👇 Decorators in Storybook also accept a function. Replace <Story/> with Story() to enable it  */}
                 <Story />
             </div>
@@ -47,12 +47,12 @@ export const Clear = {
 
 export const Outline = {
     args: {
-        children: 'this is outline button',
-        theme: ThemeButton.OUTLINE,
+        children: 'Text',
+        theme: ButtonTheme.OUTLINE,
     },
     decorators: [
         (Story) => (
-            <div style={{ padding: '10px', border: '1px solid' }}>
+            <div>
                 {/* 👇 Decorators in Storybook also accept a function. Replace <Story/> with Story() to enable it  */}
                 <Story />
             </div>
@@ -60,9 +60,34 @@ export const Outline = {
     ],
 } satisfies Story;
 
-export const Small = {
+export const OutlineSizeL = {
     args: {
-        children: 'this is small button',
-        size: 'small',
+        children: 'Text',
+        theme: ButtonTheme.OUTLINE,
+        size: ButtonSize.L,
     },
+    decorators: [
+        (Story) => (
+            <div>
+                {/* 👇 Decorators in Storybook also accept a function. Replace <Story/> with Story() to enable it  */}
+                <Story />
+            </div>
+        ),
+    ],
+} satisfies Story;
+
+export const OutlineSizeXl = {
+    args: {
+        children: 'Text',
+        theme: ButtonTheme.OUTLINE,
+        size: ButtonSize.XL,
+    },
+    decorators: [
+        (Story) => (
+            <div>
+                {/* 👇 Decorators in Storybook also accept a function. Replace <Story/> with Story() to enable it  */}
+                <Story />
+            </div>
+        ),
+    ],
 } satisfies Story;
