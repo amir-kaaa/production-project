@@ -45,6 +45,21 @@ export const Clear = {
     ],
 } satisfies Story;
 
+export const ClearInverted = {
+    args: {
+        children: 'Text',
+        theme: ButtonTheme.CLEAR_INVERTED,
+    },
+    decorators: [
+        (Story) => (
+            <div>
+                {/* 👇 Decorators in Storybook also accept a function. Replace <Story/> with Story() to enable it  */}
+                <Story />
+            </div>
+        ),
+    ],
+} satisfies Story;
+
 export const Outline = {
     args: {
         children: 'Text',

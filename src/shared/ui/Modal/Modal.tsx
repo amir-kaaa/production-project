@@ -6,6 +6,7 @@ import React, {
     ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
 import cls from './Modal.module.scss';
+import { Portal } from '../Portal/Portal';
 
 interface ModalProps {
     className?: string;
@@ -21,6 +22,7 @@ export const Modal = (props: ModalProps) => {
 
     const [isClosing, setIsClosing] = useState(false);
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
+    const ANIMATION_DELAY = 150;
 
     const closeHandler = useCallback(() => {
         if (onClose) {
@@ -28,7 +30,7 @@ export const Modal = (props: ModalProps) => {
             timerRef.current = setTimeout(() => {
                 onClose();
                 setIsClosing(false);
-            }, 150);
+            }, ANIMATION_DELAY);
         }
     }, [onClose]);
 
@@ -58,12 +60,15 @@ export const Modal = (props: ModalProps) => {
         [cls.isClosing]: isClosing,
     };
     return (
-        <div className={classNames(cls.Modal, mods, [className])}>
-            <div className={cls.overlay} onClick={closeHandler}>
-                <div className={cls.content} onClick={contentClickHandler}>
-                    {children}
+        <Portal>
+            <div className={classNames(cls.Modal, mods, [className])}>
+                <div className={cls.overlay} onClick={closeHandler}>
+                    <div className={cls.content} onClick={contentClickHandler}>
+                        {children}
+                    </div>
                 </div>
             </div>
-        </div>
+        </Portal>
+
     );
 };
