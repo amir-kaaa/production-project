@@ -37,6 +37,8 @@ module.exports = {
             markupOnly: true,
         }],
         'max-len': 'off',
+        'no-param-reassign': 'off',
+        'no-plusplus': 'off',
     },
     globals: {
         __IS_DEV__: true,
