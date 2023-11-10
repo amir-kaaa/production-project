@@ -8,5 +8,7 @@
     "Обновить страницу": "Reload page",
     "Короткий язык": "ру",
     "Главная": "Home",
-    "О сайте": "About us"
+    "О сайте": "About us",
+    "increment": "increment",
+    "decrement": "decrement"
 }
